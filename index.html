@@ -503,11 +503,22 @@ button {
 <div class="section">
 <h2>ข้อมูลเพิ่มเติม / Additional Information</h2>
 <p>ท่านมีเพื่อน/ญาติ ทํางานอยู่ที่บริษัทนี้หรือไม่ / Do you have friends/relatives working at this Company?</p>
-<div class="radio-group">
-  <label><input type="radio" name="relative" value="Yes"> มี / Yes</label>
-  <label><input type="radio" name="relative" value="No"> ไม่มี / No</label>
+<label><input type="radio" name="relative" value="No"> ไม่มี / No</label>
+<label><input type="radio" name="relative" value="Yes"> มี / Yes</label>
+
+<div id="relative_info" style="display:none; gap:10px; display:flex; margin-top:5px;">
+  <input type="text" name="relative_name" placeholder="ชื่อ / Name" style="flex:1;">
+  <input type="text" name="relative_department" placeholder="แผนก / Department" style="flex:1;">
+  <input type="text" name="relative_relationship" placeholder="ความสัมพันธ์ / Relationship" style="flex:1;">
 </div>
 
+<script>
+document.querySelectorAll('input[name="relative"]').forEach(r => {
+  r.addEventListener('change', ()=> {
+    document.getElementById('relative_info').style.display = (r.value==='Yes') ? 'flex' : 'none';
+  });
+});
+</script>
 <p>ในการปฏิบัติงาน ท่านสามารถเปลี่ยนแปลงตำแหน่งหน้าที่ได้ตามความเหมาะสม / Are you able to rotate your work position if needed?</p>
 <div class="radio-group">
   <label><input type="radio" name="adjust" value="Yes"> ได้ / Yes</label>
@@ -516,19 +527,18 @@ button {
 
 <p>ท่านมีโรคประจำตัว หรือ โรคเจ็บป่วยเรื้อรังหรือไม่? / Do you have any congenital disease or chronic illness?</p>
 <div class="radio-group">
-  <label><input type="radio" name="ill" value="Yes"> มี / Yes</label>
-  <label><input type="radio" name="ill" value="No"> ไม่มี / No</label>
+  <input type="radio" name="allergy" value="no"> ไม่มี / No
+    <input type="radio" name="allergy" value="yes"> มี / Yes โปรดระบุ / Please Specify: 
+    <input type="text" name="allergy_specify" style="width: 60%; display: inline-block; margin-left:5px;" placeholder="ระบุอาการ / Specify">
+    </label>
 </div>
 
 <p>ท่านมีอาการภูมิแพ้ที่ร้ายแรงหรือไม่? / Do you have any serious allergies or not?</p>
 <div class="radio-group">
   <label>
+        <input type="radio" name="allergy" value="no"> ไม่มี / No
     <input type="radio" name="allergy" value="yes"> มี / Yes โปรดระบุ / Please Specify: 
     <input type="text" name="allergy_specify" style="width: 60%; display: inline-block; margin-left:5px;" placeholder="ระบุอาการ / Specify">
-  </label>
-  <br>
-  <label>
-    <input type="radio" name="allergy" value="no"> ไม่มี / No
   </label>
 </div>
 
@@ -536,14 +546,14 @@ button {
 <div class="section">
 <p>ข้าพเจ้าขอรับรองว่าข้อความดังกล่าวข้างต้นและหลักฐานต่างๆถูกต้องและเป็นจริงทุกประการ ข้าพเจ้ายินดีให้บริษัทตรวจสอบประวัติเกี่ยวกับตัวข้าพเจ้าได้ และหากข้าพเจ้าได้รับการพิจารณาเข้าทํางาน และบริษัทตรวจสอบพบว่าข้อความที่ให้ไว้ไม่ตรงกับความจริง ข้าพเจ้ายินดีให้บริษัทยกเลิกสัญญาจ้างของข้าพเจ้าทันที โดยข้าพเจ้าจะไม่เรียกร้องค่าสินไหมทดแทนหรือเงินชดเชยใดๆทั้งสิ้นจากบริษัท</p>
 <p>I hereby certify that the above statements and evidences are true and accurate in every respect. I authorize the company to conduct a background check on myself. In the event that I am being considered for employment and the company finds that the information provided is not accurate,I agree to immediate termination of my contract without any claim for compensation or severance pay from the company<p>
-<div class="inline">
 
-  <input type="text" placeholder="ลงชื่อผู้สมัคร / Applicant Name">
-  <input type="date" placeholder="วันที่ / Date">
+<div class="inline" style="gap:10px;">
+  <input type="text" placeholder="ลงชื่อผู้สมัคร / Applicant Name" style="flex:2; max-width:300px;">
+  <input type="date" placeholder="วันที่ / Date" style="flex:1; max-width:150px;">
 </div>
+
 <div style="text-align:center; margin-top:50px;">
   <button type="submit">ส่งใบสมัคร / Submit</button>
-</div>
 </div>
 
 </form>
