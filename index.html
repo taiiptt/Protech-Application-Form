@@ -91,7 +91,7 @@ button {
 <div class="inline">
     <div>
         <label>เงินเดือนที่ต้องการ / Expected Salary:</label>
-        <input type="text" name="expected_salary" style="width: 80%;">
+        <input type="number" name="expected_salary" style="width: 80%;">
     </div>
     <div>
         <label>วันที่สามารถเริ่มงานได้ / Available Start Date:</label>
@@ -104,34 +104,18 @@ button {
 <div class="section">
 <h2>ประวัติส่วนตัว / Personal Information</h2>
 
-<h3>คำนำหน้า (ไทย) / Title (Thai)</h3>
-<div class="inline">
-    <select name="title_thai">
-        <option value="" selected disabled>-- เลือกคำนำหน้า --</option>
-        <option value="นาย">นาย</option>
-        <option value="นาง">นาง</option>
-        <option value="นางสาว">นางสาว</option>
-        <option value="อื่นๆ">อื่นๆ / Other</option>
-    </select>
+<h3>คำนำหน้าชื่อ / Title</h3>
+<div class="radio-group">
+    <label><input type="radio" name="title" value="Mr"> นาย / Mr.</label>
+    <label><input type="radio" name="title" value="Mrs"> นาง / Mrs.</label>
+    <label><input type="radio" name="title" value="Ms"> นางสาว / Ms.</label>
+    <label><input type="radio" name="title" value="Other"> อื่นๆ / Other</label>
 </div>
-
 
 <h3>ชื่อ-สกุล (ไทย) / Full Name (Thai)</h3>
 <div class="inline">
     <input type="text" name="fullname_thai" placeholder="ชื่อ-สกุล (ไทย)">
     <input type="text" name="nickname_thai" placeholder="ชื่อเล่น">
-</div>
-
-<h3>Title (English)</h3>
-<div class="inline">
-    <select name="title_eng">
-        <option value="" selected disabled>-- Select Title --</option>
-        <option value="Mr.">Mr.</option>
-        <option value="Mrs.">Mrs.</option>
-        <option value="Ms.">Ms.</option>
-        <option value="Miss">Miss</option>
-        <option value="Other">Other</option>
-    </select>
 </div>
     
 <h3>ชื่อ-สกุล (อังกฤษ) / Full Name (English)</h3>
@@ -150,9 +134,9 @@ button {
 </div>
 
 <div class="inline">
-    <input type="text" name="id_card" placeholder="ID Card Number">
+    <input type="text" inputmode="numeric" name="id_card" placeholder="ID Card Number">
     <input type="email" name="email" placeholder="Email">
-    <input type="text" name="phone" placeholder="Phone">
+    <input type="tel" name="phone" placeholder="Phone">
 </div>
 
 <textarea name="current_address" placeholder="Current Address / ที่อยู่ปัจจุบัน"></textarea>
@@ -210,19 +194,19 @@ button {
 </thead>
 <tbody>
 <tr>
-<td><input type="text" name="emergency_name1" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="emergency_relation1" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="emergency_phone1"style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
+<td><input type="text" name="emergency_name1" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+<td><input type="text" name="emergency_relation1" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+<td><input type="text" name="emergency_phone1"style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
 </tr>
 <tr>
-<td><input type="text" name="emergency_name2" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="emergency_relation2" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="emergency_phone2" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
+<td><input type="text" name="emergency_name2" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+<td><input type="text" name="emergency_relation2" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+<td><input type="text" name="emergency_phone2" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
 </tr>
 <tr>
-<td><input type="text" name="emergency_name3" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="emergency_relation3" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="emergency_phone3" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
+<td><input type="text" name="emergency_name3" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+<td><input type="text" name="emergency_relation3" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+<td><input type="text" name="emergency_phone3" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
 </tr>
 </tbody>
 </table>
@@ -230,215 +214,251 @@ button {
 
 <!-- SECTION 4: Work Experience -->
 <div class="section">
-<h2>ประสบการณ์ทำงาน(ปัจจุบัน – อดีต) / Work Experience (Present – Past)</h2>
-<!-- Repeat for 3 companies -->
+<h2>ประสบการณ์ทำงาน (ปัจจุบัน – อดีต) / Work Experience (Present – Past)</h2>
+
+<!-- Company 1 -->
 <div class="section">
-<h3>บริษัท / Company 1 </h3>
-<div class="inline">
-  <input type="text" name="company1_name" placeholder="ชื่อบริษัท / Company Name" style="flex:2;">
-  <input type="text" name="company1_position" placeholder="ตำแหน่ง / Position" style="flex:1;">
-</div>
-
-<div class="inline" style="align-items: center;">
-  <label style="flex:0 0 auto; align-self:center;">ระยะเวลา / Period:</label>
-  <input type="date" name="company1_from" placeholder="เริ่ม / From" style="flex:0 0 150px;"> 
-  <span style="align-self:center;">–</span>
-  <input type="date" name="company1_to" placeholder="ออก / To" style="flex:0 0 150px;">
-  
-  <!-- Checkbox สำหรับจนถึงปัจจุบัน -->
-  <label style="margin-left:10px;">
-    <input type="checkbox" name="company1_current" value="จนถึงปัจจุบัน"> จนถึงปัจจุบัน / Present
-  </label>
-</div>
+<h3>บริษัท / Company 1</h3>
 
 <div class="inline">
-  <input type="text" name="company1_salary" placeholder="เงินเดือน / Salary" style="flex:1;">
-  <input type="text" name="company1_bonus" placeholder="โบนัส / Bonus" style="flex:1;">
-  <input type="text" name="company1_other_income" placeholder="รายได้อื่นๆ / Other Income" style="flex:1;">
+    <input type="text" name="company1_name" placeholder="ชื่อบริษัท / Company Name" style="flex:2;">
+    <input type="text" name="company1_position" placeholder="ตำแหน่ง / Position" style="flex:1;">
+</div>
+
+<div class="inline" style="align-items:center;">
+    <label style="flex:0 0 auto;">ระยะเวลา / Period:</label>
+    <input type="date" name="company1_from" style="flex:0 0 150px;">
+    <span>–</span>
+    <input type="date" name="company1_to" style="flex:0 0 150px;">
+
+    <label style="margin-left:10px;">
+        <input type="checkbox" name="company1_current" value="Present"> จนถึงปัจจุบัน / Present
+    </label>
+</div>
+
+<div class="inline">
+    <input type="text" name="company1_salary" placeholder="เงินเดือน / Salary" style="flex:1;">
+    <input type="text" name="company1_bonus" placeholder="โบนัส / Bonus" style="flex:1;">
+    <input type="text" name="company1_other_income" placeholder="รายได้อื่นๆ / Other Income" style="flex:1;">
 </div>
 
 <textarea name="company1_responsibilities" placeholder="หน้าที่ความรับผิดชอบ / Responsibilities"></textarea>
 <textarea name="company1_reason_leaving" placeholder="เหตุผลที่ลาออก / Reason for Leaving"></textarea>
+</div>
+<!-- End Company 1 -->
 
+<!-- Company 2 -->
 <div class="section">
-<h3>บริษัท / Company 2 </h3>
-<div class="inline">
-  <input type="text" name="company2_name" placeholder="ชื่อบริษัท / Company Name" style="flex:2;">
-  <input type="text" name="company2_position" placeholder="ตำแหน่ง / Position" style="flex:1;">
-</div>
-
-<div class="inline" style="align-items: center;">
-  <label style="flex:0 0 auto; align-self:center;">ระยะเวลา / Period:</label>
-  <input type="date" name="company2_from" placeholder="เริ่ม / From" style="flex:0 0 150px;"> 
-  <span style="align-self:center;">–</span>
-  <input type="date" name="company2_to" placeholder="ออก / To" style="flex:0 0 150px;">
-  
-  <!-- Checkbox สำหรับจนถึงปัจจุบัน -->
-  <label style="margin-left:10px;">
-    <input type="checkbox" name="company2_current" value="จนถึงปัจจุบัน"> จนถึงปัจจุบัน / Present
-  </label>
-</div>
+<h3>บริษัท / Company 2</h3>
 
 <div class="inline">
-  <input type="text" name="company2_salary" placeholder="เงินเดือน / Salary" style="flex:1;">
-  <input type="text" name="company2_bonus" placeholder="โบนัส / Bonus" style="flex:1;">
-  <input type="text" name="company2_other_income" placeholder="รายได้อื่นๆ / Other Income" style="flex:1;">
+    <input type="text" name="company2_name" placeholder="ชื่อบริษัท / Company Name" style="flex:2;">
+    <input type="text" name="company2_position" placeholder="ตำแหน่ง / Position" style="flex:1;">
+</div>
+
+<div class="inline" style="align-items:center;">
+    <label style="flex:0 0 auto;">ระยะเวลา / Period:</label>
+    <input type="date" name="company2_from" style="flex:0 0 150px;">
+    <span>–</span>
+    <input type="date" name="company2_to" style="flex:0 0 150px;">
+
+    <label style="margin-left:10px;">
+        <input type="checkbox" name="company2_current" value="Present"> จนถึงปัจจุบัน / Present
+    </label>
+</div>
+
+<div class="inline">
+    <input type="text" name="company2_salary" placeholder="เงินเดือน / Salary" style="flex:1;">
+    <input type="text" name="company2_bonus" placeholder="โบนัส / Bonus" style="flex:1;">
+    <input type="text" name="company2_other_income" placeholder="รายได้อื่นๆ / Other Income" style="flex:1;">
 </div>
 
 <textarea name="company2_responsibilities" placeholder="หน้าที่ความรับผิดชอบ / Responsibilities"></textarea>
 <textarea name="company2_reason_leaving" placeholder="เหตุผลที่ลาออก / Reason for Leaving"></textarea>
 </div>
+<!-- End Company 2 -->
 
+<!-- Company 3 -->
 <div class="section">
-<h3>บริษัท / Company 3 </h3>
-<div class="inline">
-  <input type="text" name="company3_name" placeholder="ชื่อบริษัท / Company Name" style="flex:2;">
-  <input type="text" name="company3_position" placeholder="ตำแหน่ง / Position" style="flex:1;">
-</div>
-
-<div class="inline" style="align-items: center;">
-  <label style="flex:0 0 auto; align-self:center;">ระยะเวลา / Period:</label>
-  <input type="date" name="company3_from" placeholder="เริ่ม / From" style="flex:0 0 150px;"> 
-  <span style="align-self:center;">–</span>
-  <input type="date" name="company3_to" placeholder="ออก / To" style="flex:0 0 150px;">
-  
-  <!-- Checkbox สำหรับจนถึงปัจจุบัน -->
-  <label style="margin-left:10px;">
-    <input type="checkbox" name="company3_current" value="จนถึงปัจจุบัน"> จนถึงปัจจุบัน / Present
-  </label>
-</div>
+<h3>บริษัท / Company 3</h3>
 
 <div class="inline">
-  <input type="text" name="company3_salary" placeholder="เงินเดือน / Salary" style="flex:1;">
-  <input type="text" name="company3_bonus" placeholder="โบนัส / Bonus" style="flex:1;">
-  <input type="text" name="company3_other_income" placeholder="รายได้อื่นๆ / Other Income" style="flex:1;">
+    <input type="text" name="company3_name" placeholder="ชื่อบริษัท / Company Name" style="flex:2;">
+    <input type="text" name="company3_position" placeholder="ตำแหน่ง / Position" style="flex:1;">
+</div>
+
+<div class="inline" style="align-items:center;">
+    <label style="flex:0 0 auto;">ระยะเวลา / Period:</label>
+    <input type="date" name="company3_from" style="flex:0 0 150px;">
+    <span>–</span>
+    <input type="date" name="company3_to" style="flex:0 0 150px;">
+
+    <label style="margin-left:10px;">
+        <input type="checkbox" name="company3_current" value="Present"> จนถึงปัจจุบัน / Present
+    </label>
+</div>
+
+<div class="inline">
+    <input type="text" name="company3_salary" placeholder="เงินเดือน / Salary" style="flex:1;">
+    <input type="text" name="company3_bonus" placeholder="โบนัส / Bonus" style="flex:1;">
+    <input type="text" name="company3_other_income" placeholder="รายได้อื่นๆ / Other Income" style="flex:1;">
 </div>
 
 <textarea name="company3_responsibilities" placeholder="หน้าที่ความรับผิดชอบ / Responsibilities"></textarea>
 <textarea name="company3_reason_leaving" placeholder="เหตุผลที่ลาออก / Reason for Leaving"></textarea>
 </div>
+<!-- End Company 3 -->
+
+</div>
 
 <!-- SECTION 5: Education -->
 <div class="section">
 <h2>ประวัติการศึกษา / Education Background</h2>
+
 <table>
 <tr>
-<th>ระดับการศึกษา / Level</th>
-<th>ชื่อสถาบัน / Institution</th>
-<th>สาขา / Major</th>
-<th>ปีที่จบ / Year</th>
-<th>เกรดเฉลี่ย / GPA</th>
+    <th>ระดับการศึกษา / Level</th>
+    <th>ชื่อสถาบัน / Institution</th>
+    <th>สาขา / Major</th>
+    <th>ปีที่จบ / Year</th>
+    <th>เกรดเฉลี่ย / GPA</th>
 </tr>
+
 <tr>
-<td>มัธยมปลาย / High School</td>
-<td><input type="text" name="highschool_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="highschool_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="highschool_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="highschool_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
+    <td>มัธยมปลาย / High School</td>
+    <td><input type="text" name="highschool_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="highschool_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="highschool_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="highschool_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
 </tr>
+
 <tr>
-<td>อาชีวะ / Vocational</td>
-<td><input type="text" name="vocational_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="vocational_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="vocational_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="vocational_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
+    <td>อาชีวะ / Vocational</td>
+    <td><input type="text" name="vocational_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="vocational_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="vocational_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="vocational_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
 </tr>
+
 <tr>
-<td>อนุปริญญา / Diploma</td>
-<td><input type="text" name="diploma_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="diploma_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="diploma_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="diploma_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
+    <td>อนุปริญญา / Diploma</td>
+    <td><input type="text" name="diploma_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="diploma_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="diploma_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="diploma_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
 </tr>
+
 <tr>
-<td>ปริญญาตรี / Bachelor’s</td>
-<td><input type="text" name="bachelor_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="bachelor_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="bachelor_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="bachelor_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
+    <td>ปริญญาตรี / Bachelor’s</td>
+    <td><input type="text" name="bachelor_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="bachelor_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="bachelor_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="bachelor_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
 </tr>
+
 <tr>
-<td>ปริญญาโท / Master’s</td>
-<td><input type="text" name="master_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="master_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="master_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="master_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
+    <td>ปริญญาโท / Master’s</td>
+    <td><input type="text" name="master_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="master_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="master_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="master_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
 </tr>
+
 <tr>
-<td>อื่นๆ / Others</td>
-<td><input type="text" name="other_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="other_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="other_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td><input type="text" name="other_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
+    <td>อื่นๆ / Others</td>
+    <td><input type="text" name="other_institution" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="other_major" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="other_year" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+    <td><input type="text" name="other_gpa" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
 </tr>
+
 </table>
-</div>
+</div>>
 
 <!-- SECTION 6: Language Skills -->
 <div class="section">
 <h2>ความสามารถทางภาษา / Language Skills</h2>
+
 <table>
 <tr>
-<th>ภาษา / Language</th>
-<th>พูด / Speaking</th>
-<th>อ่าน / Reading</th>
-<th>เขียน / Writing</th>
-</tr>
-<tr>
-<td><input type="text" name="lang1_name" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td>
-<label><input type="radio" name="lang1_speak" value="Excellent"> ดีมาก / Excellent</label>
-<label><input type="radio" name="lang1_speak" value="Good"> ดี / Good</label>
-<label><input type="radio" name="lang1_speak" value="Fair"> พอใช้ / Fair</label>
-</td>
-<td>
-<label><input type="radio" name="lang1_read" value="Excellent"> ดีมาก / Excellent</label>
-<label><input type="radio" name="lang1_read" value="Good"> ดี / Good</label>
-<label><input type="radio" name="lang1_read" value="Fair"> พอใช้ / Fair</label>
-</td>
-<td>
-<label><input type="radio" name="lang1_write" value="Excellent"> ดีมาก / Excellent</label>
-<label><input type="radio" name="lang1_write" value="Good"> ดี / Good</label>
-<label><input type="radio" name="lang1_write" value="Fair"> พอใช้ / Fair</label>
-</td>
-</tr>
-<td><input type="text" name="lang2_name" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td>
-<label><input type="radio" name="lang2_speak" value="Excellent"> ดีมาก / Excellent</label>
-<label><input type="radio" name="lang2_speak" value="Good"> ดี / Good</label>
-<label><input type="radio" name="lang2_speak" value="Fair"> พอใช้ / Fair</label>
-</td>
-<td>
-<label><input type="radio" name="lang2_read" value="Excellent"> ดีมาก / Excellent</label>
-<label><input type="radio" name="lang2_read" value="Good"> ดี / Good</label>
-<label><input type="radio" name="lang2_read" value="Fair"> พอใช้ / Fair</label>
-</td>
-<td>
-<label><input type="radio" name="lang2_write" value="Excellent"> ดีมาก / Excellent</label>
-<label><input type="radio" name="lang2_write" value="Good"> ดี / Good</label>
-<label><input type="radio" name="lang2_write" value="Fair"> พอใช้ / Fair</label>
-</td>
+    <th>ภาษา / Language</th>
+    <th>พูด / Speaking</th>
+    <th>อ่าน / Reading</th>
+    <th>เขียน / Writing</th>
 </tr>
 
-<td><input type="text" name="lang3_name" style="width: 90%; padding: 5px; display: block; margin: 0 auto;">
-<td>
-<label><input type="radio" name="lang3_speak" value="Excellent"> ดีมาก / Excellent</label>
-<label><input type="radio" name="lang3_speak" value="Good"> ดี / Good</label>
-<label><input type="radio" name="lang3_speak" value="Fair"> พอใช้ / Fair</label>
-</td>
-<td>
-<label><input type="radio" name="lang3_read" value="Excellent"> ดีมาก / Excellent</label>
-<label><input type="radio" name="lang3_read" value="Good"> ดี / Good</label>
-<label><input type="radio" name="lang3_read" value="Fair"> พอใช้ / Fair</label>
-</td>
-<td>
-<label><input type="radio" name="lang3_write" value="Excellent"> ดีมาก / Excellent</label>
-<label><input type="radio" name="lang3_write" value="Good"> ดี / Good</label>
-<label><input type="radio" name="lang3_write" value="Fair"> พอใช้ / Fair</label>
-</td>
+<!-- Language 1 -->
+<tr>
+    <td><input type="text" name="lang1_name" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+
+    <td>
+        <label><input type="radio" name="lang1_speak" value="Excellent"> ดีมาก / Excellent</label>
+        <label><input type="radio" name="lang1_speak" value="Good"> ดี / Good</label>
+        <label><input type="radio" name="lang1_speak" value="Fair"> พอใช้ / Fair</label>
+    </td>
+
+    <td>
+        <label><input type="radio" name="lang1_read" value="Excellent"> ดีมาก / Excellent</label>
+        <label><input type="radio" name="lang1_read" value="Good"> ดี / Good</label>
+        <label><input type="radio" name="lang1_read" value="Fair"> พอใช้ / Fair</label>
+    </td>
+
+    <td>
+        <label><input type="radio" name="lang1_write" value="Excellent"> ดีมาก / Excellent</label>
+        <label><input type="radio" name="lang1_write" value="Good"> ดี / Good</label>
+        <label><input type="radio" name="lang1_write" value="Fair"> พอใช้ / Fair</label>
+    </td>
 </tr>
+
+<!-- Language 2 -->
+<tr>
+    <td><input type="text" name="lang2_name" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+
+    <td>
+        <label><input type="radio" name="lang2_speak" value="Excellent"> ดีมาก / Excellent</label>
+        <label><input type="radio" name="lang2_speak" value="Good"> ดี / Good</label>
+        <label><input type="radio" name="lang2_speak" value="Fair"> พอใช้ / Fair</label>
+    </td>
+
+    <td>
+        <label><input type="radio" name="lang2_read" value="Excellent"> ดีมาก / Excellent</label>
+        <label><input type="radio" name="lang2_read" value="Good"> ดี / Good</label>
+        <label><input type="radio" name="lang2_read" value="Fair"> พอใช้ / Fair</label>
+    </td>
+
+    <td>
+        <label><input type="radio" name="lang2_write" value="Excellent"> ดีมาก / Excellent</label>
+        <label><input type="radio" name="lang2_write" value="Good"> ดี / Good</label>
+        <label><input type="radio" name="lang2_write" value="Fair"> พอใช้ / Fair</label>
+    </td>
+</tr>
+
+<!-- Language 3 -->
+<tr>
+    <td><input type="text" name="lang3_name" style="width: 90%; padding: 5px; display: block; margin: 0 auto;"></td>
+
+    <td>
+        <label><input type="radio" name="lang3_speak" value="Excellent"> ดีมาก / Excellent</label>
+        <label><input type="radio" name="lang3_speak" value="Good"> ดี / Good</label>
+        <label><input type="radio" name="lang3_speak" value="Fair"> พอใช้ / Fair</label>
+    </td>
+
+    <td>
+        <label><input type="radio" name="lang3_read" value="Excellent"> ดีมาก / Excellent</label>
+        <label><input type="radio" name="lang3_read" value="Good"> ดี / Good</label>
+        <label><input type="radio" name="lang3_read" value="Fair"> พอใช้ / Fair</label>
+    </td>
+
+    <td>
+        <label><input type="radio" name="lang3_write" value="Excellent"> ดีมาก / Excellent</label>
+        <label><input type="radio" name="lang3_write" value="Good"> ดี / Good</label>
+        <label><input type="radio" name="lang3_write" value="Fair"> พอใช้ / Fair</label>
+    </td>
+</tr>
+
 </table>
 </div>
+
 
 <!-- SECTION 7 TRAINING -->
 <div class="section">
@@ -499,6 +519,9 @@ button {
   <p style="font-weight: bold;">มีพาหนะเป็นของตนเอง / Have your own vehicle</p>
 
   <div class="checkbox-group" style="margin-bottom:10px;">
+      <label style="margin-right:20px;">
+      <input type="checkbox" name="own_vehicle_none" value="none"> ไม่มี / None
+    </label>
     <label style="margin-right:20px;">
       <input type="checkbox" name="own_vehicle_car" value="car"> รถยนต์ / Car
     </label>
@@ -530,11 +553,13 @@ button {
 <!-- SECTION 10 ADDITIONAL -->
 <div class="section">
 <h2>ข้อมูลเพิ่มเติม / Additional Information</h2>
+
+<!-- FRIENDS/RELATIVES -->
 <p>ท่านมีเพื่อน/ญาติ ทํางานอยู่ที่บริษัทนี้หรือไม่ / Do you have friends/relatives working at this Company?</p>
 <label><input type="radio" name="relative" value="No"> ไม่มี / No</label>
 <label><input type="radio" name="relative" value="Yes"> มี / Yes</label>
 
-<div id="relative_info" style="display:none; gap:10px; display:flex; margin-top:5px;">
+<div id="relative_info" style="display:none; gap:10px; margin-top:5px;">
   <input type="text" name="relative_name" placeholder="ชื่อ / Name" style="flex:1;">
   <input type="text" name="relative_department" placeholder="แผนก / Department" style="flex:1;">
   <input type="text" name="relative_relationship" placeholder="ความสัมพันธ์ / Relationship" style="flex:1;">
@@ -543,32 +568,41 @@ button {
 <script>
 document.querySelectorAll('input[name="relative"]').forEach(r => {
   r.addEventListener('change', ()=> {
-    document.getElementById('relative_info').style.display = (r.value==='Yes') ? 'flex' : 'none';
+    document.getElementById('relative_info').style.display = 
+      (r.value === 'Yes') ? 'flex' : 'none';
   });
 });
 </script>
+
+<!-- ABLE TO ROTATE POSITION -->
 <p>ในการปฏิบัติงาน ท่านสามารถเปลี่ยนแปลงตำแหน่งหน้าที่ได้ตามความเหมาะสม / Are you able to rotate your work position if needed?</p>
 <div class="radio-group">
   <label><input type="radio" name="adjust" value="Yes"> ได้ / Yes</label>
   <label><input type="radio" name="adjust" value="No"> ไม่ได้ / No</label>
 </div>
 
+<!-- ILLNESS -->
 <p>ท่านมีโรคประจำตัว หรือ โรคเจ็บป่วยเรื้อรังหรือไม่? / Do you have any congenital disease or chronic illness?</p>
 <div class="radio-group">
-  <input type="radio" name="ill" value="no"> ไม่มี / No
-    <input type="radio" name="ill" value="yes"> มี / Yes โปรดระบุ / Please Specify: 
-    <input type="text" name="ill_specify" style="width: 60%; display: inline-block; margin-left:5px;" placeholder="ระบุอาการ / Specify">
-    </label>
-</div>
-
-<p>ท่านมีอาการภูมิแพ้ที่ร้ายแรงหรือไม่? / Do you have any serious allergies or not?</p>
-<div class="radio-group">
+  <label><input type="radio" name="ill" value="no"> ไม่มี / No</label>
   <label>
-        <input type="radio" name="allergy" value="no"> ไม่มี / No
-    <input type="radio" name="allergy" value="yes"> มี / Yes โปรดระบุ / Please Specify: 
-    <input type="text" name="allergy_specify" style="width: 60%; display: inline-block; margin-left:5px;" placeholder="ระบุอาการ / Specify">
+    <input type="radio" name="ill" value="yes"> มี / Yes
+    <input type="text" name="ill_specify" placeholder="ระบุอาการ / Specify" style="width:60%; margin-left:5px;">
   </label>
 </div>
+
+<!-- ALLERGY -->
+<p>ท่านมีอาการภูมิแพ้ที่ร้ายแรงหรือไม่? / Do you have any serious allergies?</p>
+<div class="radio-group">
+  <label><input type="radio" name="allergy" value="no"> ไม่มี / No</label>
+  <label>
+    <input type="radio" name="allergy" value="yes"> มี / Yes
+    <input type="text" name="allergy_specify" placeholder="ระบุอาการ / Specify" style="width:60%; margin-left:5px;">
+  </label>
+</div>
+
+</div>
+
 
 <!-- SECTION 11: Signature -->
 <div class="section">
@@ -576,8 +610,8 @@ document.querySelectorAll('input[name="relative"]').forEach(r => {
 <p>I hereby certify that the above statements and evidences are true and accurate in every respect. I authorize the company to conduct a background check on myself. In the event that I am being considered for employment and the company finds that the information provided is not accurate,I agree to immediate termination of my contract without any claim for compensation or severance pay from the company<p>
 
 <div class="inline" style="gap:10px;">
-  <input type="text" placeholder="ลงชื่อผู้สมัคร / Applicant Name" style="flex:2; max-width:300px;">
-  <input type="date" placeholder="วันที่ / Date" style="flex:1; max-width:150px;">
+  <input type="text" name="applicant_signature" placeholder="ลงชื่อผู้สมัคร / Applicant Name" style="flex:2; max-width:300px;">
+  <input type="date" name="signature_date" placeholder="วันที่ / Date" style="flex:1; max-width:150px;">
 </div>
 
 <div style="text-align:center; margin-top:50px;">
@@ -587,7 +621,3 @@ document.querySelectorAll('input[name="relative"]').forEach(r => {
 </form>
 </body>
 </html>
-
-
-
-
