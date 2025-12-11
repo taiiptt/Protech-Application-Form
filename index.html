@@ -464,8 +464,8 @@ button {
 
 <!-- SECTION 8 COMPUTER -->
 <div class="section">
-<h2>ทักษะด้านคอมพิวเตอร์ / Computer Skills</h2>
-<textarea placeholder="โปรแกรมที่ใช้ได้ / Programs"></textarea>
+  <h2>ทักษะด้านคอมพิวเตอร์ / Computer Skills</h2>
+  <textarea name="computer_skills" placeholder="โปรแกรมที่ใช้ได้ / Programs"></textarea>
 
 <!-- SECTION 9 VEHICLE -->
 <div class="section">
@@ -475,8 +475,12 @@ button {
   <p style="font-weight: bold;">มีพาหนะเป็นของตนเอง / Have your own vehicle</p>
 
   <div class="checkbox-group" style="margin-bottom:10px;">
-    <label style="margin-right:20px;"><input type="checkbox"> รถยนต์ / Car</label>
-    <label><input type="checkbox"> รถจักรยานยนต์ / Motorcycle</label>
+    <label style="margin-right:20px;">
+      <input type="checkbox" name="own_vehicle_car" value="car"> รถยนต์ / Car
+    </label>
+    <label>
+      <input type="checkbox" name="own_vehicle_motorcycle" value="motorcycle"> รถจักรยานยนต์ / Motorcycle
+    </label>
   </div>
 
  <p>ใบขับขี่รถยนต์ / Driving License (Car): 
@@ -559,4 +563,5 @@ document.querySelectorAll('input[name="relative"]').forEach(r => {
 </form>
 </body>
 </html>
+
 
